@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYUZZ Empire | Digital Business Card</title>
+    
+    <link rel="stylesheet" href="style.css">    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <meta name="description" content="Connect with SKYUZZ Empire, a professional Barber. View portfolio, social links, and contact information.">
+    <link rel="canonical" href="https://emmystack01.github.io/i-am-SKYUZZ-Empire/index.html">
+    <meta name="author" content="SKYUZZ Empire">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SKYUZZ Empire - Digital Card">
+    <meta property="og:description" content="Professional links and contact info for SKYUZZ Empire.">
+    <meta property="og:url" content="https://emmystack01.github.io/i-am-SKYUZZ-Empire/index.html">
+    <meta property="og:image" content="https://emmystack01.github.io/i-am-SKYUZZ-Empire/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SKYUZZ Empire | Digital Card">
+    <meta name="twitter:image" content="https://emmystack01.github.io/i-am-SKYUZZ-Empire/og-image.png">
+
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="qrcode.js" as="script">
+</head>
+<body>
+
+    <div class="container">
+        <main>
+        
+            <div class="profile-wrapper">
+                <img src="Profile Picture.jpg" alt="Profile Picture" class="profile-pic" fetchpriority="high" loading="eager">
+                <div class="status-dot"></div>
+            </div>
+
+            <h1>SKYUZZ Empire</h1>
+            <p class="career">Barber</p>
+            <p class="bio">Got you covered! SKYUZZ - Barber extraordinaire. Sharp cuts, fire 🔥 fades, & vibes 💪. Book now, let's level up that look! #BarberLife #SKYUZZ</p>
+
+            <div class="links-gap">
+                <a href="https://chat.whatsapp.com/BgIbVGwMDfZJ0wjctpQc1Q" class="link-card">Get Update on how i work (WhatsApp Group)</a>
+                <a href="https://www.facebook.com/profile.php?id=61583638605913" class="link-card">Follow Me on Facebook</a>
+                <a href="https://www.tiktok.com/@skyuzz123" class="link-card">Follow Me on Tiktok</a>
+                <a href="mailto:mondayuzu9@gmail.com?subject=About Work" class="link-card">Email Me</a>
+                <div class="carousel">
+                    <div class="carousel-container">
+                        <span class="text">
+                             I also offering services in Clothing • Branding • Graphics Design • Event Coverage • Complementary Cards • Letterheads • Printing • Corporate Wear • Uniforms •  
+                        </span>
+                        <span class="text">
+                             I also offering services in Clothing • Branding • Graphics Design • Event Coverage • Complementary Cards • Letterheads • Printing • Corporate Wear • Uniforms •  
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!--SAVE CONTACT-->
+            <button class="vcard-btn" onclick="downloadVCard()">💾 Save Contact</button>
+            <!--SHARE PROFILE-->
+            <button class="share-btn" onclick="shareProfile()">
+                <i class="ri-share-forward-line"></i> Share Profile
+            </button>
+            <!--QR CODE-->
+            <button class="qr-trigger" onclick="toggleQR()">
+                <i class="ri-qr-code-line"></i> Show My QR
+            </button>
+
+            <div id="qr-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="toggleQR()">&times;</span>
+                    <h2>Scan to Connect</h2>
+                    <div id="qrcode"></div> </div>
+            </div>   
+        </main>
+        
+        <footer>
+            <div class="site-footer">
+                <p class="copyright">&copy; <span id="year"></span> SKYUZZ Empire. All Rights Reserved.</p>
+                <p class="branding">
+                    Built by <a href="https://x.com/Emmy_STACK01" target="_blank" rel="noopener noreferrer" >Emmy STACK01<i class="ri-twitter-x-fill"></i></a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        /* SAVE CONTACT */
+        function downloadVCard() {
+            // We join the lines with \r\n to ensure every phone recognizes the new line
+            const vcardData = [
+                "BEGIN:VCARD",
+                "VERSION:3.0",
+                "FN:SKYUZZ Empire",
+                "TITLE:Entrepreneur",
+                "EMAIL;TYPE=INTERNET,WORK:mondayuzu9@gmail.com",
+                "TEL;TYPE=WORK,CELL,VOICE:+2347089544798",
+                "END:VCARD"
+            ].join("\r\n");
+
+            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            
+            // Using a simple filename without spaces is safer for mobile downloads
+            a.download = 'SKYUZZ_Empire.vcf';
+            a.href = url;
+            a.click();
+            
+            // Clean up
+            setTimeout(() => window.URL.revokeObjectURL(url), 100);
+        }
+
+        /*SHARE PROFILE*/
+        async function shareProfile() {
+            const shareData = {
+                title: document.title,
+                text: 'Check out this professional profile!',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    await navigator.clipboard.writeText(window.location.href);
+                    alert('Link copied to clipboard!');
+                }
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        }
+        /*AUTO-CHANGE-YEAR*/
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+<script src="qrcode.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><!--QR CODE-->
+</body>
+</html>

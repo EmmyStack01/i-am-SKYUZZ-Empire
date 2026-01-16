@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emmystack01.github.io/i-am-SKYUZZ-Empire/sitemap.xml
