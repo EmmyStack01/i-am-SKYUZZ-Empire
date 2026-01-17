@@ -109,31 +109,28 @@
         }
 
         .carousel-container {
-            display: flex;
-            white-space: nowrap;
-            animation: marquee 25s infinite linear; /* Fixed name and timing */
-        }
-
-        .text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            padding: 10px 20px;
-        }
-
-
-        /* The Animation Logic */
-        @keyframes marquee {
-            from {
-                transform: translateX(0);
+                display: flex;
+                width: max-content; /* Vital: prevents the container from shrinking */
+                white-space: nowrap;
+                animation: marquee 25s infinite linear;
             }
-            to {
-                transform: translateX(-50%); /* Moves exactly half-way (the first group) */
+            
+            @keyframes marquee {
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); } /* Moves exactly one full span length */
             }
-        }
+            
+            .text {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.9rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: var(--text-main);
+                padding: 10px 0;
+                display: block; 
+            }
+
 
         /* Pause on hover so people can read the services */
         .carousel:hover .carousel-container {
@@ -297,3 +294,4 @@
 
 
         
+
