@@ -121,12 +121,9 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--text-main);
-            padding: 10px 0;
+            padding: 10px 20px;
         }
 
-        .text::first-letter{
-            padding-left: 1em;
-        }
 
         /* The Animation Logic */
         @keyframes marquee {
@@ -297,5 +294,6 @@
 
         /* Footer appears last */
         .footer-credits { animation-delay: 1s; }
+
 
         
