@@ -251,11 +251,6 @@
             text-decoration: underline;
         }
 
-        .site-footer i{
-            color: white;
-            font-weight: 50;
-        }
-
         
         /* Animation */
         @keyframes fadeInUp {
@@ -294,4 +289,5 @@
 
 
         
+
 
